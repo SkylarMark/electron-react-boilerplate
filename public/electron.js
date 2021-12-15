@@ -15,12 +15,12 @@ let testWindow;
  * testWindow
  */
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 900, height: 680});
+  mainWindow = new BrowserWindow({ width: 900, height: 680 });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-  
-  testWindow = new BrowserWindow({width: 500, height: 500});
+
+  testWindow = new BrowserWindow({ width: 500, height: 500 });
   testWindow.loadURL(isDev ? 'http://localhost:3000/test' : `file://${path.join(__dirname, '../build/index.html#test')}`);
-  
+
   /**
    * mainWindow on Close, Quit the app, Set mainWindow and testWindow to null
    */
@@ -31,8 +31,14 @@ function createWindow() {
   });
 }
 
+/**
+ * Create window on app Ready
+ */
 app.on('ready', createWindow);
 
+/**
+ * On Closing All Windows
+ */
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
