@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 /**
  * CSS Import
@@ -11,7 +11,9 @@ import './index.css';
  */
 import ReactRoutes from './routes';
 
-ReactDOM.render(
-  <ReactRoutes />,
-  document.getElementById('root')
+const element = document.getElementById('root');
+const root = createRoot(element);
+
+root.render(
+  <ReactRoutes />
 );

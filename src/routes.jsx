@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Switch, BrowserRouter } from 'react-router-dom';
+import { HashRouter, Route, BrowserRouter, Routes as MainRoutes } from 'react-router-dom';
 
 /**
  * Imports of React Main Compoenents
@@ -12,10 +12,10 @@ import Test from './main/main.test';
  * @constant {Routes}
  */
 const Routes = () => (
-    <Switch>
-        <Route path='/' exact component={App} />
-        <Route path='/test' component={Test} />
-    </Switch>
+    <MainRoutes>
+        <Route path='/' element={<App />} />
+        <Route path='/test' element={<Test />} />
+    </MainRoutes>
 )
 
 /**
